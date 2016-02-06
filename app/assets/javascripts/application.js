@@ -12,5 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.bxslider
+//= require mooz.scripts.min
+//= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .

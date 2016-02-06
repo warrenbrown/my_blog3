@@ -2,21 +2,30 @@
 <html>
 <head>
   <title>
-  <% if content_for?(:title) %>
-    <%= yield(:title) %> | Weblog 3
-  <% end %>
-</title>
+    <% if content_for?(:title) %>
+      <%= yield(:title) %> | Weblog 3
+    <% end %>
+  </title>
+  <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+	<meta name="author" content="">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container">
+  <%= render partial: 'shared/navigation' %>
   <% flash.each do |key, message| %>
     <div class="alert alert-<%= key %>">
       <%= message %>
     </div>
   <% end %>
 <%= yield %>
-
+<%= render partial: 'shared/footer' %>
+</div>
 </body>
 </html>
