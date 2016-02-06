@@ -1,0 +1,9 @@
+<div class="col-xs-2">
+  <h3>New Comment</h3>
+
+<%= simple_form_for [post, comment] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :text %>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>
+</div>
