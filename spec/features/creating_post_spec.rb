@@ -22,4 +22,15 @@ RSpec.feature 'Users can create post' do
     expect(page).to have_content 'Post has not been created.'
     expect(page).to have_content "Title can't be blank"
   end
+
+  scenario "with an attachment" do
+    fill_in "Title", with: "Add documentation for blink tag"
+    fill_in "Content", with: "The blink tag has a speed attribute"
+    attach_file "File", "spec/fixtures/speed.txt"
+    click_button "Create Post"
+    expect(page).to have_content "Post has been created."
+    within("#post .attachment") do
+      expect(page).to have_content "speed.txt"
+    end
+  end
 end

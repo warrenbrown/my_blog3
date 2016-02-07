@@ -8,14 +8,15 @@
 				<div class="col-md-8">
 					<%= @posts.each do |post| %>
 					<article class="blog-post">
-						<div class="blog-post-image">
-							<a href="post.html"><img src="images/750x500-1.jpg" alt=""></a>
-						</div>
-
+						<% if post.attachment.present? %>
+							<div class="blog-post-image">
+								<%= image_tag post.attachment.url, :width => '100%' %>
+							</div>
+						<% end %>
 						<div class="blog-post-body">
 
 							<h2><%= post.title %></h2>
-							<div class="post-meta"><span>by <a href="#">Jamie Mooze</a></span>/<span><i class="fa fa-clock-o"></i>March 14, 2015</span>/<span><i class="fa fa-comment-o"></i> <a href="#">343</a></span></div>
+							<div class="post-meta"><span>by <a href="#">Warren Brown</a></span>/<span><i class="fa fa-clock-o"></i>March 14, 2015</span>/<span><i class="fa fa-comment-o"></i> <a href="#">343</a></span></div>
 							<p>ew months ago, we found ridiculously cheap plane tickets for Boston and off we went. It was our first visit to the city and, believe it or not, Stockholm in February was more pleasant than Boston in March. It probably has a lot to do with the fact that we arrived completely unprepared. That I, in my converse and thin jacket, did not end up with pneumonia is honestly not even fair.</p>
 							<div class="read-more"><%= link_to 'Continue Reading', post %></a></div>
 						</div>
@@ -24,54 +25,7 @@
 					<!-- article -->
 
 				</div>
-				<div class="col-md-4 sidebar-gutter">
-					<aside>
-					<!-- sidebar-widget -->
-					<div class="sidebar-widget">
-						<h3 class="sidebar-title">About Me</h3>
-						<div class="widget-container widget-about">
-							<a href="post.html"><img src="images/author.jpg" alt=""></a>
-							<h4>Warren Brown</h4>
-							<div class="author-title">Developer/Fitness Junkie/Gamer</div>
-							<p>While everyone’s eyes are glued to the runway, it’s hard to ignore that there are major fashion moments on the front row too.</p>
-						</div>
-					</div>
-					<!-- sidebar-widget -->
-					<div class="sidebar-widget">
-						<a class="twitter-timeline" href="https://twitter.com/RHSBobcat93" data-widget-id="696010818668797953">Tweets by @RHSBobcat93</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-					</div>
-					<!-- sidebar-widget -->
-					<div class="sidebar-widget">
-						<h3 class="sidebar-title">Socials</h3>
-						<div class="widget-container">
-							<div class="widget-socials">
-								<a href="#"><i class="fa fa-facebook"></i></a>
-								<a href="#"><i class="fa fa-twitter"></i></a>
-								<a href="#"><i class="fa fa-instagram"></i></a>
-								<a href="#"><i class="fa fa-google-plus"></i></a>
-								<a href="#"><i class="fa fa-dribbble"></i></a>
-								<a href="#"><i class="fa fa-reddit"></i></a>
-							</div>
-						</div>
-					</div>
-					<!-- sidebar-widget -->
-					<div class="sidebar-widget">
-						<h3 class="sidebar-title">Categories</h3>
-						<div class="widget-container">
-							<ul>
-								<li><a href="#">Kayaking</a></li>
-								<li><a href="#">Fitness</a></li>
-								<li><a href="#">Design</a></li>
-								<li><a href="#">Featured</a></li>
-								<li><a href="#">Graphics</a></li>
-								<li><a href="#">Peoples</a></li>
-								<li><a href="#">Uncategorized</a></li>
-							</ul>
-						</div>
-					</div>
-					</div>
-					</aside>
+				<%= render partial: 'shared/sidebar_gutter' %>
+
 				</div>
-			</div>
 		</section>
