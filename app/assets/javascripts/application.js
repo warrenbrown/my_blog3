@@ -17,3 +17,10 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+
+$(function() {
+  $("#post_published_on").datepicker();
+  $( "#post_published_on" ).datepicker( "setDate", "10/12/2012" );
+
+});

@@ -17,9 +17,7 @@
         <li><a href="#contact">Fashion</a></li>
         <li><%= link_to 'About Me', static_pages_about_path %></li>
         <li><%= link_to 'Contact', static_pages_contact_path %></li>
-        <% if current_user.email == 'warren@katapultmedia.com' %>
           <li><%= link_to 'New Post', new_post_path %></li>
-        <% end %>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
